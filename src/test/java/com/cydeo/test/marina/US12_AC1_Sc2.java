@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class US12_AC1_Sc2 extends TestBase {
 
     @Test
-    public void kpj() throws InterruptedException {
+    public void createVehilceServiceLogs() throws InterruptedException {
         driver.get("https://qa2.vytrack.com/user/login");
         WebElement username = driver.findElement(By.xpath("//input[@id='prependedInput']"));
         username.sendKeys("user45");
