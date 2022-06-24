@@ -1,6 +1,8 @@
 package com.cydeo.test.marina;
 
 import com.cydeo.test.base.TestBase;
+import com.cydeo.test.utilities.ConfigurationReader;
+import com.cydeo.test.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,34 +12,35 @@ import org.testng.annotations.Test;
 
 import javax.swing.*;
 
-public class US11_AC1_Sc1 extends TestBase {
+public class US11_AC1_Sc1 {
 
     @Test
     public void seeAllVehilceServiceLogs() throws InterruptedException {
 
-        driver.get("https://qa2.vytrack.com/user/login");
-        WebElement username = driver.findElement(By.xpath("//input[@id='prependedInput']"));
-        username.sendKeys("user45");
-        WebElement password = driver.findElement(By.cssSelector("input#prependedInput2"));
-        password.sendKeys("UserUser123");
+        Driver.getDriver().get(ConfigurationReader.getProperty("vytrack.url"));
+        WebElement username =  Driver.getDriver().findElement(By.xpath("//input[@id='prependedInput']"));
+        username.sendKeys(ConfigurationReader.getProperty("truckDriver46"));
+        WebElement password =  Driver.getDriver().findElement(By.cssSelector("input#prependedInput2"));
+        password.sendKeys(ConfigurationReader.getProperty("password"));
 
-        WebElement loginBtn = driver.findElement(By.xpath("//button[.='Log in']"));
+        WebElement loginBtn =  Driver.getDriver().findElement(By.xpath("//button[.='Log in']"));
         loginBtn.click();
         Thread.sleep(3000);
 
-        WebElement fleetBtn = driver.findElement(By.xpath("(//span[contains(text(), ' Fleet')]) [1]"));
+        WebElement fleetBtn = Driver.getDriver().findElement(By.xpath("(//span[contains(text(), ' Fleet')]) [1]"));
         Thread.sleep(3000);
-        WebElement vehicleServiceLog = driver.findElement(By.xpath("//span[.= 'Vehicle Services Logs']"));
+        WebElement vehicleServiceLog =  Driver.getDriver().findElement(By.xpath("//span[.= 'Vehicle Services Logs']"));
 
-        Actions action = new Actions (driver);
+        Actions action = new Actions (Driver.getDriver());
         action.moveToElement(fleetBtn).perform();
-        vehicleServiceLog.click();
+        action.moveToElement(vehicleServiceLog).click().perform();
         Thread.sleep(4000);
 
         String expectedTitle = "Vehicle Services Logs - Entities - System - Car - Entities - System";
-        String actualTitle = driver.getTitle();
+        String actualTitle = Driver.getDriver().getTitle();
 
         Assert.assertEquals(actualTitle, expectedTitle, "Title verification failed");
+        Driver.closeDriver();
     }
 
 
