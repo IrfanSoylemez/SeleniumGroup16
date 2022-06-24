@@ -2,9 +2,5 @@ package com.cydeo.test.marina;
 
 public class FeatureE {
 
-    // work 1
-
-    // work2
-
-    //work 3
+    // this is the content that feature-e branch does not know about
 }
