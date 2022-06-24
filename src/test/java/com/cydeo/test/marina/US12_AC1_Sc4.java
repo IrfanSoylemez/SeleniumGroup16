@@ -1,5 +1,7 @@
 package com.cydeo.test.marina;
 
+import org.testng.annotations.Test;
+
 public class US12_AC1_Sc4 {
     /*
 
@@ -8,6 +10,14 @@ Truck driver  is able to an edit existing  service log
 GIVEN I am a truck driver on Vehicle Services Logs web page ,
 WHEN I click on any servise,
 THEN I am able to edit existing services.
-
      */
+
+
+    @Test
+    public void user_edit_existing_service_log(){
+
+
+
+
+    }
 }
