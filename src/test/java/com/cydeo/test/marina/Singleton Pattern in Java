@@ -1,0 +1,1 @@
+In Java, Singleton is a design pattern that ensures that a class can only have one object. To create a singleton class, a class must implement the following properties: Create a private constructor of the class to restrict object creation outside of the class.

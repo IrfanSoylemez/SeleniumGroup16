@@ -1,0 +1,8 @@
+US11-  As a authorized user I should be able to access Vehicle Serviecs Log.
+      AC1: "1.Verify that authorized user should be able to access and see all Vehicle serviece log (Note: authorized:Truck driver)
+      Scenerio 1. Authorized user such as Truck driver is able to access to Vytrack and see  Vehicle serviece log
+      GIVEN I am a truck driver on Vytrack login page,
+      WHEN I enter a valid user name, 
+      AND I enter a valid password, 
+      AND I click on "Fleet Button",
+      THEN I see the Vehicle Services Logs page.
